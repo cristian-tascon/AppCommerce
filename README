@@ -1,0 +1,4 @@
+Para ejecutar correctamente esta app en angular por favor ejecutar los siguientes comandos una vez haya descargado la API y haber creado la base de datos que se dejo previemante en un archivo llamado Bd-Commerce.sql
+
+npm install   # Instala las dependencias
+ng serve -o      # Levanta el servidor de desarrollo
