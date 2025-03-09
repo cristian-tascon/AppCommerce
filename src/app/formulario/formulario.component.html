@@ -1,0 +1,45 @@
+<div class="container">
+    <h2>{{ isEditing ? 'Editar Comerciante' : 'Registrar Comerciante' }}</h2>
+  
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+      <div>
+        <label>Nombre:</label>
+        <input type="text" formControlName="bus_Name" required />
+      </div>
+  
+      <div>
+        <label>Teléfono:</label>
+        <input type="text" formControlName="bus_Phone_Number" required />
+      </div>
+  
+      <div>
+        <label>Email:</label>
+        <input type="email" formControlName="bus_Email" required />
+      </div>
+  
+      <div>
+        <label>Estado:</label>
+        <select formControlName="bus_Status" required>
+          <option value="A">Activo</option>
+          <option value="I">Inactivo</option>
+        </select>
+      </div>
+  
+      <div>
+        <label>Municipio:</label>
+        <!-- <input type="text" formControlName="bus_Municipality" required /> -->
+        <select formControlName="bus_Municipality" required>
+          <option value="BAR">Barranquilla</option>
+          <option value="BOG">Bogota</option>
+          <option value="BUC">Bucaramanga</option>
+          <option value="CAL">Cali</option>
+          <option value="MAN">Manizales</option>
+          <option value="MED">Medellin</option>
+        </select>
+      </div>
+  
+      <button type="submit">{{ isEditing ? 'Actualizar' : 'Registrar' }}</button>
+      <button type="button" (click)="goHome()" class="btn btn-danger">Cancelar</button> 
+    </form>
+  </div>
+  

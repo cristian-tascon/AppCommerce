@@ -1,0 +1,64 @@
+<div class="container">
+    <h1>Lista de Comerciantes</h1>
+  
+    <div class="actions">
+      <!-- <button *ngIf="isAdmin" (click)="downloadReport()" class="btn btn-primary">
+        Descargar Reporte CSV
+      </button> -->
+      <button  (click)="downloadReport()" class="btn btn-primary">
+        Descargar Reporte CSV
+      </button>
+      <button (click)="navigateToForm()" class="btn btn-success">
+        Crear Nuevo Comerciante
+      </button>
+      <button (click)="logout()" class="btn btn-danger">
+        Cerrar Sesión
+      </button>
+
+    </div>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Teléfono</th>
+          <th>Email</th>
+          <th>Municipio</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let businessman of businessmen">
+          <td>{{ businessman.busName }}</td>
+          <td>{{ businessman.busPhoneNumber || 'SIN TELÉFONO' }}</td>
+          <td>{{ businessman.busEmail || 'SIN EMAIL' }}</td>
+          <td>{{ businessman.busMunicipality }}</td>
+          <td>{{ businessman.busStatus === 'A' ? 'Activo' : 'Inactivo' }}</td>
+          <td>
+            <button (click)="editBusinessman(businessman.busId)" class="btn btn-warning btn-sm">
+              Editar
+            </button>
+            <button (click)="toggleStatus(businessman.busId, businessman.busStatus)" class="btn btn-secondary btn-sm">
+              {{ businessman.busStatus === 'A' ? 'Inactivar' : 'Activar' }}
+            </button>
+            <button *ngIf="isAdmin" (click)="deleteBusinessman(businessman.busId)" class="btn btn-danger btn-sm">
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="pagination">
+      <label for="pageSize">Registros por página:</label>
+      <select id="pageSize" [(ngModel)]="pageSize" (change)="loadBusinessmen()">
+        <option *ngFor="let size of [5, 10, 15]" [value]="size">{{ size }}</option>
+      </select>
+  
+      <button (click)="prevPage()" [disabled]="page === 1">Anterior</button>
+      <span>Página {{ page }}</span>
+      <button (click)="nextPage()">Siguiente</button>
+    </div>
+  </div>
+  
