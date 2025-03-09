@@ -1,0 +1,40 @@
+# Dependencias de Node.js
+node_modules/
+
+# Archivos de construcción
+dist/
+build/
+
+# Caché de Angular CLI
+.angular/
+
+# Reportes de pruebas
+coverage/
+
+# Configuración del editor de código
+.vscode/
+.idea/
+
+# Configuración de usuario y sistema operativo
+*.log
+*.bak
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# Archivos de entorno
+*.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Configuraciones de Angular
+.angular/cache
+src/environments/environment.prod.ts
+src/environments/environment.ts
+
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db
